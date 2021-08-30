@@ -4,11 +4,16 @@
     box-sizing: border-box;
 }
 body{
+    padding: 10px;
     font-family: 'Righteous', sans-serif ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 .card{
-    width: 150px;
-    height: 150px;
+    width: 128px;
+    height: 128px;
     position: relative;
     transform-style: preserve-3d ;
     transition: transform .5s;
@@ -66,4 +71,11 @@ body{
     border:none;
     border-radius: 12px;
     margin-top: 15px;
+}
+#cardboard{
+    
+    max-width: 700px;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    gap: 20px;
 }
