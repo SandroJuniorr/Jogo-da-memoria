@@ -16,6 +16,7 @@ function starGame(){
 }
  function initializeCards(cards){
     let cardBoard = document.getElementById("cardboard")
+    cardBoard.innerHTML = ""
 
     game.cards.forEach(card => {
         let cardElement = document.createElement('div');
@@ -79,5 +80,13 @@ function flipperface(){
     }
     
 }}
+
+}
+
+function restart(){
+    starGame()
+    gameOver = document.getElementById('gameOver');
+            
+            gameOver.style.display = "none";
 
 }
