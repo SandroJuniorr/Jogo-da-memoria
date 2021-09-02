@@ -1,4 +1,56 @@
 let game = {
+    lockMode: false,
+    firsCard: null,
+    secondCard:null,
+
+    setCArd: function (id){
+    
+       let card =  this.cards.filter(card=>card.id===id)[0]
+       if(card.flipped || this.lockMode){
+       
+        return false
+           
+       }
+    if(!this.firsCard){
+        this.firsCard = card;
+        this.firsCard.flipped = true
+        return true
+
+       }else{
+           this.secondCard = card
+           this.secondCard.flipped = true
+           this.lockMode = true
+           return true
+       }
+
+
+
+
+    },
+    checkMatch: function(){
+    if(!this.firsCard || !this.secondCard){
+        return false
+    }
+     return this.firsCard.icon === this.secondCard.icon
+    },
+    clearCARD: function (){
+        this.firsCard = null;
+        this.secondCard = null;
+        this.lockMode = false;
+    },
+    unflipCards: function(){
+        this.firsCard.flipped = false;
+        this.secondCard.flipped = false
+        this.clearCARD()
+    },
+    checkGameOver: function (){
+    let card = this.cards
+    console.log(card)
+    },
+    
+
+
+
    techs : [
         'bootstrap',
         'css',

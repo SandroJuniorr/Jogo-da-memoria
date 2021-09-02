@@ -19,7 +19,7 @@ function starGame(){
     game.cards.forEach(card => {
         let cardElement = document.createElement('div');
         cardElement.id = card.id;
-        cardElement.dataset.Icon = card.icon
+        cardElement.dataset.icon = card.icon
         cardElement.classList.add(Card);
         
 
@@ -55,5 +55,20 @@ function cardFace(face, card, Element){
 
 
 function flipperface(){
-    this.classList.add("flip")
+    if(game.setCArd(this.id)){
+    this.classList.add('flip');
+    if(game.secondCard){ 
+    if(game.checkMatch()){
+        game.clearCARD();
+    }else{
+        setTimeout(()=> {
+        let firstCardView = document.getElementById(game.firsCard.id)
+        let secondCardView = document.getElementById(game.secondCard.id)
+        firstCardView.classList.remove('flip');
+        secondCardView.classList.remove('flip')
+        game.unflipCards()
+        },1000)
+    }
+}}
+
 }
