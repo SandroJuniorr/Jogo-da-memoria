@@ -6,6 +6,7 @@ const Card = "card";
 
 starGame()
 
+
 function starGame(){
   
     initializeCards(game.creatCardsfromtechs())
@@ -60,6 +61,13 @@ function flipperface(){
     if(game.secondCard){ 
     if(game.checkMatch()){
         game.clearCARD();
+       if(game.checkGameOver()){
+        
+            gameOver = document.getElementById('gameOver');
+            
+            gameOver.style.display = "flex";
+        
+       }
     }else{
         setTimeout(()=> {
         let firstCardView = document.getElementById(game.firsCard.id)
@@ -69,6 +77,7 @@ function flipperface(){
         game.unflipCards()
         },1000)
     }
+    
 }}
 
 }

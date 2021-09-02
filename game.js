@@ -44,8 +44,9 @@ let game = {
         this.clearCARD()
     },
     checkGameOver: function (){
-    let card = this.cards
-    console.log(card)
+    return this.cards.filter(card=> !card.flipped).length == 0 
+    
+
     },
     
 
